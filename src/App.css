@@ -1,0 +1,12 @@
+a {
+    color: white;
+    text-decoration-line: none;
+}
+
+a:hover {
+    color: black
+}
+
+.nav-active {
+    color: black
+}
