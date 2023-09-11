@@ -2,10 +2,11 @@ import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import {Navbar} from "../components/UI/NavBar/Navbar.tsx";
 import {routes} from "./routes.ts";
 import {Suspense} from "react";
+import Loader from "../components/UI/Loader/Loader.tsx";
 
 export const Navigation = () => {
     return (
-        <Suspense fallback={ <span> Loading....</span>}>
+        <Suspense fallback={ <Loader/>}>
             <BrowserRouter>
                 <Navbar/>
                 <Routes>

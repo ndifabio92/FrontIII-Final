@@ -12,7 +12,7 @@ export const Form = () => {
         initialValues,
         validationSchema,
         onSubmit: (values) => {
-            //onSubmit(values);
+            console.log(values)
         }
     })
 
@@ -21,17 +21,17 @@ export const Form = () => {
             <label>
                 Name
                 <input type="text" name="name" value={formik.values.name} onChange={formik.handleChange} onBlur={formik.handleBlur} />
-                {formik.touched.name && formik.errors.name ? (
+                {formik.touched.name && formik.errors.name && (
                     <Error error={formik.errors.name}/>
-                ) : null}
+                )}
             </label>
             <br/>
             <label>
                 LastName
                 <input type="text" name="lastName" value={formik.values.lastName} onChange={formik.handleChange} onBlur={formik.handleBlur} />
-                {formik.touched.lastName && formik.errors.lastName ? (
+                {formik.touched.lastName && formik.errors.lastName &&(
                     <Error error={formik.errors.lastName}/>
-                ) : null}
+                )}
             </label>
             <br/>
             <button type="submit">Send</button>
