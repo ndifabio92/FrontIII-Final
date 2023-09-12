@@ -12,7 +12,8 @@ const Home = () => {
             {
                 loading ? <Loader isLoading={loading}/> :
                 data.map(item => (
-                    <CardItem key={item.id} data={item}/>)
+                        <CardItem key={item.id} data={item}/>
+                    )
                 )
             }
         </div>

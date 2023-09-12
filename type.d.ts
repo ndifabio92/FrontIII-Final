@@ -33,3 +33,11 @@ export type FormData = {
     lastName: string;
     email: string;
 }
+
+export type State = {
+    ids: string[]
+}
+
+export type Action =
+    | { type: 'ADD_ID'; payload: string }
+    | { type: 'REMOVE_ID'; payload: string };

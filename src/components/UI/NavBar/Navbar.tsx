@@ -75,7 +75,7 @@ export const Navbar = () => {
                             }}
 
                         >
-                            {pages.map((page) => (
+                            {pages.map((page) => page.view && (
                                 <MenuItem key={page.to} onClick={handleCloseNavMenu} >
                                     <NavLink key={page.to} to={page.to} onClick={handleCloseNavMenu} className={ ({ isActive }) => isActive ? 'nav-active' : '' }>
                                         {page.name}
@@ -104,7 +104,7 @@ export const Navbar = () => {
                         LOGO
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'space-around'}}>
-                        {pages.map((page) => (
+                        {pages.map((page) => page.view && (
                             <NavLink key={page.to} to={page.to} onClick={handleCloseNavMenu} className={ ({ isActive }) => isActive ? 'nav-active' : '' }>
                                 {page.name}
                             </NavLink>

@@ -7,6 +7,7 @@ interface Route {
     path: string;
     Component: LazyExoticComponent<JSXComponent> | JSXComponent;
     name: string;
+    view: boolean;
 }
 
 const Home = lazy(() => import('../pages/Home'));
@@ -19,24 +20,28 @@ export const routes: Route[] = [
         to: '/home',
         path: 'home',
         Component: Home,
-        name: 'Home'
+        name: 'Home',
+        view: true
     },
     {
         to: '/dentist/:id',
         path: 'dentist/:id',
         Component: Dentist,
-        name: 'Dentist'
+        name: 'Dentist',
+        view: false
     },
     {
         to: '/fav',
         path: 'fav',
         Component: Favs,
-        name: 'Favs'
+        name: 'Favorite',
+        view: true
     },
     {
         to: '/contact',
         path: 'contact',
         Component: ContactUs,
-        name: 'Contact Us'
+        name: 'Contact Us',
+        view: true
     },
 ]
