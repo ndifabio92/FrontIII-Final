@@ -10,7 +10,7 @@ const Dentist = () => {
     error && console.error(error);
 
     return (
-        <div className="container-list">
+        <div className="container-list" style={{ height: '100vh'}}>
             {
                 loading
                     ? <Loader isLoading={loading}/>

@@ -1,8 +1,12 @@
 .container-form {
     width: 400px;
-    margin: 25px auto auto auto;
+    margin: 50px auto auto auto;
     display: flex;
-    justify-content: center;
     flex-direction: column;
     gap: 10px;
+    height: 100vh;
+}
+
+.input-background {
+    background: white;
 }

@@ -1,9 +1,7 @@
 .container-list {
-    max-width: 1280px;
-    margin: 25px auto auto auto;
+    padding: 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 25px;
-
 }

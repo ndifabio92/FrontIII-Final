@@ -21,14 +21,16 @@ export const Form = () => {
 
     return (
         <form onSubmit={formik.handleSubmit} className="container-form">
-            <TextField variant="outlined" size="small" label="Name" type="text" name="name" value={formik.values.name}
+            <TextField variant="outlined" size="small" label="Name" type="text" name="name" className="input-background"
+                       value={formik.values.name}
                        onChange={formik.handleChange} onBlur={formik.handleBlur}/>
             {formik.touched.name && formik.errors.name && (
                 <Error error={formik.errors.name}/>
             )}
 
-            <TextField variant="outlined" size="small" label="Email" type="text" name="email"
-                       value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
+            <TextField variant="outlined" size="small" label="Email" type="text" name="email" className="input-background"
+                       value={formik.values.email}
+                       onChange={formik.handleChange} onBlur={formik.handleBlur}/>
             {formik.touched.email && formik.errors.email && (
                 <Error error={formik.errors.email}/>
             )}

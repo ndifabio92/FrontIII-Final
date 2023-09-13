@@ -18,7 +18,7 @@ const Favorite = () => {
         }
     }, [ids, navigate]);
     return (
-        <div className="container-list">
+        <div className="container-list" style={{ height: '100vh'}}>
             {
                 loading ? <Loader isLoading={loading}/> :
                     data.map(item => (
