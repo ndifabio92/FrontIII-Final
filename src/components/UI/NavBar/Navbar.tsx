@@ -12,9 +12,13 @@ import AdbIcon from '@mui/icons-material/Adb';
 import {routes as pages} from "../../../routes/routes.ts";
 import {NavLink} from "react-router-dom";
 import './index.module.css'
+import {useColorContext} from "../../Context/Context.tsx";
+import Button from "@mui/material/Button";
+import CustomizedSwitches from "../Switch/MaterialUISwitch.tsx";
 
 export const Navbar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+    const { toggleBackgroundColor } = useColorContext();
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
@@ -108,10 +112,10 @@ export const Navbar = () => {
                             <NavLink key={page.to} to={page.to} onClick={handleCloseNavMenu} className={ ({ isActive }) => isActive ? 'nav-active' : '' }>
                                 {page.name}
                             </NavLink>
-
                         ))}
-                    </Box>
 
+                    </Box>
+                    <Button name="Context" style={{color: 'white'}} onClick={toggleBackgroundColor}><CustomizedSwitches/></Button>
                 </Toolbar>
             </Container>
         </AppBar>

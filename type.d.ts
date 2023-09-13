@@ -30,7 +30,6 @@ export type Company = {
 
 export type FormData = {
     name: string;
-    lastName: string;
     email: string;
 }
 
@@ -40,4 +39,5 @@ export type State = {
 
 export type Action =
     | { type: 'ADD_ID'; payload: string }
-    | { type: 'REMOVE_ID'; payload: string };
+    | { type: 'REMOVE_ID'; payload: string }
+    | { type: 'GET_LOCALSTORAGE', payload: string };

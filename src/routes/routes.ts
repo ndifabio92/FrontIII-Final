@@ -12,8 +12,9 @@ interface Route {
 
 const Home = lazy(() => import('../pages/Home'));
 const Dentist = lazy(() => import('../pages/Dentist'));
-const Favs = lazy(() => import('../pages/Favs'));
+const Favorite = lazy(() => import('../pages/Favorite.tsx'));
 const ContactUs = lazy(() => import('../pages/ContactUs'));
+
 
 export const routes: Route[] = [
     {
@@ -31,9 +32,9 @@ export const routes: Route[] = [
         view: false
     },
     {
-        to: '/fav',
-        path: 'fav',
-        Component: Favs,
+        to: '/favorite',
+        path: 'favorite',
+        Component: Favorite,
         name: 'Favorite',
         view: true
     },

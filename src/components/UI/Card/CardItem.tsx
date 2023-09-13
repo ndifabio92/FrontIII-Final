@@ -11,9 +11,10 @@ import {useStore} from "../../../hooks/useStore.ts";
 import './card.css';
 
 
-export const CardItem = ({data, detail}: { data: Dentist, detail: boolean }) => {
+export const CardItem = ({data, detail}: { data: Dentist, detail?: boolean }) => {
     const {state, addId, removeId} = useStore();
-    const isExist = state.ids.find(item => Number(item) === data.id);
+    const isExist = state.ids.find((item: string) => Number(item) === data.id);
+    const isExistLocalStorage = JSON.parse(localStorage.getItem('ids') || '[]').find((item: string) => Number(item) === data.id);
     const handleAddId = (value: string) => {
         addId(value)
     };
@@ -23,7 +24,7 @@ export const CardItem = ({data, detail}: { data: Dentist, detail: boolean }) => 
     }
 
     return (
-        <Card sx={{width: 345}}>
+        <Card sx={{width: 345, height: 420}}>
             <CardMedia
                 sx={{height: 200}}
                 image={no_image}
@@ -48,7 +49,7 @@ export const CardItem = ({data, detail}: { data: Dentist, detail: boolean }) => 
             </CardContent>
             <CardActions className="card-actions">
                 {
-                    isExist ? <Button variant="contained" size="small" color="error"
+                    (isExist || isExistLocalStorage) ? <Button variant="contained" size="small" color="error"
                                       onClick={() => handleRemoveId(String(data.id))}>Remove</Button>
                         : <Button variant="contained" size="small" color="success"
                                   onClick={() => handleAddId(String(data.id))}>Favorite</Button>

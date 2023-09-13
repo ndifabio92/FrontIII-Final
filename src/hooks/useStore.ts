@@ -22,10 +22,18 @@ export const reducer = (state: State, action: Action) => {
 
     if (type === "REMOVE_ID") {
         const idToRemove = payload;
-        const newIds = state.ids.filter((id) => id !== idToRemove);
-        localStorage.setItem("ids", JSON.stringify(newIds));
+        const oldIds = JSON.parse(localStorage.getItem('ids') || '[]');
+        const newIds = state.ids.filter((id: string) => id !== idToRemove);
+        const newIdsStorage = oldIds.filter((id: string) => id !== idToRemove);
+        localStorage.setItem("ids", JSON.stringify(newIdsStorage));
 
         return { ...state, ids: newIds };
+    }
+
+    if(type === "GET_LOCALSTORAGE") {
+        const ids = JSON.parse(localStorage.getItem('ids') || '[]');
+        console.log(ids)
+        return { ...state, ids }
     }
 
     return state;
@@ -45,9 +53,14 @@ export const useStore = () => {
         dispatch({ type: "REMOVE_ID", payload });
     };
 
+    const getLocalStorage = (payload: string) => {
+        dispatch({ type: 'GET_LOCALSTORAGE', payload });
+    }
+
     return {
         state,
         addId,
         removeId,
+        getLocalStorage
     };
 }

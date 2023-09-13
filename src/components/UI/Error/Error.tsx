@@ -3,7 +3,7 @@ type props = {
 }
 
 export const Error = ({error}: props) => (
-    <div style={{ backgroundColor: 'red', marginTop: '10px'}}>
+    <div style={{ color: 'red', textAlign: 'center'}}>
         {error}
     </div>
 )
